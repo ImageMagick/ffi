@@ -29,7 +29,7 @@
 #include <ffi.h>
 #include <ffi_common.h>
 
-#if !FFI_NO_RAW_API
+#if FFI_RAW_API
 
 size_t
 ffi_raw_size (ffi_cif *cif)
@@ -251,4 +251,4 @@ ffi_prep_raw_closure (ffi_raw_closure* cl,
 
 #endif /* FFI_CLOSURES */
 
-#endif /* !FFI_NO_RAW_API */
+#endif /* FFI_RAW_API */
