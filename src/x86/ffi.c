@@ -788,7 +788,7 @@ ffi_prep_closure_loc (ffi_closure* closure,
 
 /* ------- Native raw API support -------------------------------- */
 
-#if !FFI_NO_RAW_API
+#if FFI_RAW_API
 
 ffi_status
 ffi_prep_raw_closure_loc (ffi_raw_closure* closure,
