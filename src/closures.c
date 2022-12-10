@@ -558,7 +558,7 @@ static int execfd = -1;
 /* The amount of space already allocated from the temporary file.  */
 static size_t execsize = 0;
 
-#ifdef HAVE_MEMFD_CREATE
+#ifdef DISABLED_HAVE_MEMFD_CREATE
 /* Open a temporary file name, and immediately unlink it.  */
 static int
 open_temp_exec_file_memfd (const char *name)
@@ -696,7 +696,7 @@ static struct
   const char *arg;
   int repeat;
 } open_temp_exec_file_opts[] = {
-#ifdef HAVE_MEMFD_CREATE
+#ifdef DISABLED_HAVE_MEMFD_CREATE
   { open_temp_exec_file_memfd, "libffi", 0 },
 #endif
   { open_temp_exec_file_env, "LIBFFI_TMPDIR", 0 },
