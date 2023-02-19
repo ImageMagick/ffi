@@ -668,7 +668,7 @@ ffi_prep_go_closure (ffi_go_closure* closure, ffi_cif* cif,
 
 /* ------- Native raw API support -------------------------------- */
 
-#if !FFI_NO_RAW_API
+#if FFI_RAW_API
 
 void FFI_HIDDEN ffi_closure_raw_SYSV(void);
 void FFI_HIDDEN ffi_closure_raw_THISCALL(void);
