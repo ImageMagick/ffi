@@ -164,7 +164,7 @@ ffi_tramp_is_present (__attribute__((unused)) void *ptr)
 
 #include <mach/mach.h>
 #include <pthread.h>
-#ifdef HAVE_PTRAUTH
+#ifdef HAVE_ARM64E_PTRAUTH
 #include <ptrauth.h>
 #endif
 #include <stdio.h>
@@ -223,7 +223,7 @@ ffi_trampoline_table_alloc (void)
   /* Remap the trampoline table on top of the placeholder page */
   trampoline_page = config_page + PAGE_MAX_SIZE;
 
-#ifdef HAVE_PTRAUTH
+#ifdef HAVE_ARM64E_PTRAUTH
   trampoline_page_template = (vm_address_t)(uintptr_t)ptrauth_auth_data((void *)&ffi_closure_trampoline_table_page, ptrauth_key_function_pointer, 0);
 #else
   trampoline_page_template = (vm_address_t)&ffi_closure_trampoline_table_page;
@@ -268,7 +268,7 @@ ffi_trampoline_table_alloc (void)
       ffi_trampoline_table_entry *entry = &table->free_list_pool[i];
       entry->trampoline =
 	(void *) (trampoline_page + (i * FFI_TRAMPOLINE_SIZE));
-#ifdef HAVE_PTRAUTH
+#ifdef HAVE_ARM64E_PTRAUTH
       entry->trampoline = ptrauth_sign_unauthenticated(entry->trampoline, ptrauth_key_function_pointer, 0);
 #endif
 
@@ -586,7 +586,7 @@ static int execfd = -1;
 /* The amount of space already allocated from the temporary file.  */
 static size_t execsize = 0;
 
-#ifdef DISABLED_HAVE_MEMFD_CREATE
+#ifdef HAVE_MEMFD_CREATE
 /* Open a temporary file name, and immediately unlink it.  */
 static int
 open_temp_exec_file_memfd (const char *name)
@@ -724,7 +724,7 @@ static struct
   const char *arg;
   int repeat;
 } open_temp_exec_file_opts[] = {
-#ifdef DISABLED_HAVE_MEMFD_CREATE
+#ifdef HAVE_MEMFD_CREATE
   { open_temp_exec_file_memfd, "libffi", 0 },
 #endif
   { open_temp_exec_file_env, "LIBFFI_TMPDIR", 0 },
