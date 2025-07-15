@@ -1,4 +1,4 @@
-[STATIC]
+[STATIC_LIBRARY]
 
 [LICENSE]
 LICENSE
@@ -6,28 +6,57 @@ LICENSE
 [DEFINES]
 FFI_STATIC_BUILD
 
-[DIRECTORIES]
-include
-src
-src\aarch64
-src\x86
-
 [INCLUDES]
 include
 
+[INCLUDE_ARTIFACTS]
+include -> .
+include\aarch64 -> aarch64
+include\x86 -> x86
+
 [EXCLUDES]
-dlmalloc.c
-ffi64.c
-java_raw_api.c
+src\alpha\
+src\arm\
+src\arc\
+src\avr32\
+src\bfin\
+src\cris\
+src\csky\
+src\frv\
+src\ia64\
+src\kvx\
+src\ia64\
+src\loongarch64\
+src\m32r\
+src\m68k\
+src\m88k\
+src\metag\
+src\microblaze\
+src\mips\
+src\moxie\
+src\or1k\
+src\pa\
+src\powerpc\
+src\riscv\
+src\s390\
+src\sh\
+src\sh64\
+src\sparc\
+src\tile\
+src\vax\
+src\wasm32\
+src\xtensa\
+src\dlmalloc.c
+src\java_raw_api.c
+testsuite\
 
 [EXCLUDES_X64]
-win32.asm
-winarm64.asm
+src\aarch64\
+src\x86\win32.asm
 
 [EXCLUDES_X86]
-win64.asm
-winarm64.asm
+src\aarch64\
+src\x86\win64.asm
 
 [EXCLUDES_ARM64]
-win32.asm
-win64.asm
+src\x86\
