@@ -84,9 +84,9 @@ extern "C" {
 #define FFI_TYPE_LAST       FFI_TYPE_COMPLEX
 
 #if defined(_M_ARM64)
-#  include "../src/aarch64/ffitarget.h"
+#  include <aarch64/ffitarget.h>
 #else
-#  include "../src/x86/ffitarget.h"
+#  include <x86/ffitarget.h>
 #endif
 
 #ifndef LIBFFI_ASM
