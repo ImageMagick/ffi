@@ -50,8 +50,10 @@ extern "C" {
 #endif
 
 /* Specify which architecture libffi is configured for. */
-#ifndef @TARGET@
-#define @TARGET@
+#if defined(_WIN64)
+#  define X86_WIN64
+#else
+#  define X86_WIN32
 #endif
 
 /* ---- System configuration information --------------------------------- */
@@ -61,7 +63,7 @@ extern "C" {
 #define FFI_TYPE_INT        1
 #define FFI_TYPE_FLOAT      2
 #define FFI_TYPE_DOUBLE     3
-#if @HAVE_LONG_DOUBLE@
+#if 0
 #define FFI_TYPE_LONGDOUBLE 4
 #else
 #define FFI_TYPE_LONGDOUBLE FFI_TYPE_DOUBLE
@@ -81,7 +83,11 @@ extern "C" {
 /* This should always refer to the last type code (for sanity checks).  */
 #define FFI_TYPE_LAST       FFI_TYPE_COMPLEX
 
-#include <ffitarget.h>
+#if defined(_M_ARM64)
+#  include <aarch64/ffitarget.h>
+#else
+#  include <x86/ffitarget.h>
+#endif
 
 #ifndef LIBFFI_ASM
 
@@ -316,8 +322,8 @@ size_t ffi_java_raw_size (ffi_cif *cif) __attribute__((deprecated));
 
 /* ---- Version API ------------------------------------------------------ */
 
-#define FFI_VERSION_STRING "@FFI_VERSION_STRING@"
-#define FFI_VERSION_NUMBER @FFI_VERSION_NUMBER@
+#define FFI_VERSION_STRING "3.5.1"
+#define FFI_VERSION_NUMBER (3 * 10000 + 5 * 100 + 1) 
 
 #ifndef LIBFFI_ASM
 /* Return a version string. */
@@ -340,7 +346,7 @@ FFI_API size_t ffi_get_closure_size (void);
 __declspec(align(8))
 #endif
 typedef struct {
-#if @FFI_EXEC_TRAMPOLINE_TABLE@
+#if 0
   void *trampoline_table;
   void *trampoline_table_entry;
 #else
@@ -393,7 +399,7 @@ ffi_prep_closure_loc (ffi_closure*,
 # pragma pack 8
 #endif
 typedef struct {
-#if @FFI_EXEC_TRAMPOLINE_TABLE@
+#if 0
   void *trampoline_table;
   void *trampoline_table_entry;
 #else
@@ -418,7 +424,7 @@ typedef struct {
 } ffi_raw_closure;
 
 typedef struct {
-#if @FFI_EXEC_TRAMPOLINE_TABLE@
+#if 0
   void *trampoline_table;
   void *trampoline_table_entry;
 #else
