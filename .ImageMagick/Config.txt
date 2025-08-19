@@ -44,7 +44,7 @@ src\sh64\
 src\sparc\
 src\tile\
 src\vax\
-src\wasm32\
+src\wasm\
 src\xtensa\
 src\dlmalloc.c
 src\java_raw_api.c
