@@ -1200,7 +1200,7 @@ ffi_go_closure_win64 proc
 	align	8
 	
 PUBLIC ffi_closure_win64
-ffi_closure_win64 PROC FRAME
+ffi_closure_win64 PROC
 	
 	
 	mov qword ptr [rsp + 8], rcx; movq	%rcx, 8(%rsp)
