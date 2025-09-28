@@ -1,5 +1,23 @@
 [STATIC_LIBRARY]
 
+[VERSION]
+3.5.2
+
+[RELEASE_DATE]
+libffi
+
+[PRODUCT_NAME]
+2025-08-02
+
+[COMPANY_NAME]
+Anthony Green
+
+[URL]
+https://sourceware.org/libffi
+
+[COPYRIGHT]
+Copyright Anthony Green
+
 [LICENSE_FILE]
 LICENSE
 
