@@ -4,10 +4,10 @@
 3.5.2
 
 [RELEASE_DATE]
-libffi
+2025-08-02
 
 [PRODUCT_NAME]
-2025-08-02
+libffi
 
 [COMPANY_NAME]
 Anthony Green
