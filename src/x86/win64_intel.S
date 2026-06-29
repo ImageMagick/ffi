@@ -146,6 +146,12 @@ E(0b, FFI_TYPE_POINTER)
 	epilogue
 E(0b, FFI_TYPE_COMPLEX)
 	call	PLT(C(abort))
+E(0b, FFI_TYPE_UINT128)
+	movdqu	xmmword ptr [r8], xmm0
+	epilogue
+E(0b, FFI_TYPE_SINT128)
+	movdqu	xmmword ptr [r8], xmm0
+	epilogue
 E(0b, FFI_TYPE_SMALL_STRUCT_1B)
 	mov byte ptr [r8], al ; movb	%al, (%r8)
 	epilogue
@@ -193,7 +199,7 @@ C(ffi_go_closure_win64) proc
 	align	8
 	
 PUBLIC C(ffi_closure_win64)
-C(ffi_closure_win64) PROC
+C(ffi_closure_win64) PROC FRAME
 	cfi_startproc
 	/* Save all integer arguments into the incoming reg stack space.  */
 	mov qword ptr [rsp + 8], rcx; movq	%rcx, 8(%rsp)

@@ -1,10 +1,10 @@
 [STATIC_LIBRARY]
 
 [VERSION]
-3.5.2
+3.6.0
 
 [RELEASE_DATE]
-2025-08-02
+2026-06-20
 
 [PRODUCT_NAME]
 libffi
@@ -47,7 +47,7 @@ src\frv\
 src\ia64\
 src\kvx\
 src\ia64\
-src\loongarch64\
+src\loongarch\
 src\m32r\
 src\m68k\
 src\m88k\
